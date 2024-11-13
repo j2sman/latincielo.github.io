@@ -13,7 +13,7 @@ useHead({
 <template>
   <div class="relative min-h-screen">
     <!-- 배경 이미지 -->
-    <div
+    <!-- <div
       class="absolute inset-0 z-0"
       style="
         background-image: url('https://i.imgur.com/7MN0F1F.png');
@@ -21,7 +21,12 @@ useHead({
         background-position: center;
         opacity: 0.15;
       "
-    ></div>
+    ></div> -->
+    <div class="video-background">
+      <video autoplay muted loop>
+        <source src="https://i.imgur.com/gqsH04H.mp4" type="video/mp4" />
+      </video>
+    </div>
 
     <!-- 컨텐츠 -->
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
@@ -147,5 +152,26 @@ useHead({
 <style scoped>
 .min-h-screen {
   min-height: calc(100vh - 64px); /* 헤더 높이만큼 빼기 */
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
