@@ -28,6 +28,7 @@
   "schedule": {
     "title": "Class Schedule",
     "description": "Notion calendar will be connected.",
+    "viewNotionSchedule": "View Notion Schedule",
     "weekdays": {
       "monday": "Monday",
       "tuesday": "Tuesday",

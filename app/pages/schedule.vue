@@ -40,6 +40,18 @@
       </div>
     </div>
 
+    <!-- 이미지 그리드 아래에 추가 -->
+    <div class="mt-8 text-center">
+      <UButton
+        icon="i-heroicons-arrow-top-right-on-square"
+        size="lg"
+        color="primary"
+        @click="openNotionSchedule"
+      >
+        {{ $t("schedule.viewNotionSchedule") }}
+      </UButton>
+    </div>
+
     <!-- 이미지 모달 -->
     <UModal v-model="isModalOpen" :transition="false">
       <div class="relative">
@@ -57,11 +69,6 @@
         </button>
       </div>
     </UModal>
-
-    <!-- 노션 캘린더 연동 컴포넌트 자리 -->
-    <div class="bg-white rounded-lg shadow-lg p-6">
-      <p class="text-gray-600">노션 캘린더가 연동될 예정입니다.</p>
-    </div>
   </div>
 </template>
 
@@ -145,6 +152,15 @@ function weekdayName(weekday) {
     t("schedule.weekdays.saturday"),
   ];
   return weekdays[weekday];
+}
+
+// Notion 스케줄 페이지 열기 함수 추가
+function openNotionSchedule() {
+  window.open(
+    "https://dashboard.latincielo.kr",
+    "_blank",
+    "noopener,noreferrer"
+  );
 }
 </script>
 

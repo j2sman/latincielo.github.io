@@ -28,6 +28,7 @@
   "schedule": {
     "title": "수업 일정",
     "description": "노션 캘린더가 연동될 예정입니다.",
+    "viewNotionSchedule": "노션 캘린더 보기",
     "weekdays": {
       "monday": "월요일",
       "tuesday": "화요일",
