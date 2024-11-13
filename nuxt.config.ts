@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  app: {
-    baseURL: "/latincielo.github.io/", // GitHub 저장소 이름으로 변경
-    buildAssetsDir: "assets",
-    // CDN 사용시 필요한 설정
-    cdnURL: "https://j2sman.github.io",
-  },
+  // app: {
+  //   baseURL: "/latincielo.github.io/", // GitHub 저장소 이름으로 변경
+  //   buildAssetsDir: "assets",
+  //   // CDN 사용시 필요한 설정
+  //   cdnURL: "https://j2sman.github.io",
+  // },
   ssr: true,
   target: "static",
   image: {
