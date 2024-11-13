@@ -1,24 +1,34 @@
 <template>
   <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-8">
-      {{ $t("schedule.title") }}
-    </h1>
+    <div class="flex justify-between items-center mb-8">
+      <h1 class="text-4xl font-bold">
+        {{ $t("schedule.title") }}
+      </h1>
+      <UButton
+        icon="i-heroicons-arrow-top-right-on-square"
+        size="lg"
+        color="primary"
+        @click="openNotionSchedule"
+      >
+        {{ $t("schedule.viewNotionSchedule") }}
+      </UButton>
+    </div>
 
-    <!-- 이미지 그리드 -->
-    <div class="mb-8">
+    <!-- 요일별 그리드 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       <div
         v-for="(group, weekday) in groupedImages"
         :key="weekday"
-        class="mb-12"
+        class="bg-gray-800/20 rounded-xl p-4"
       >
-        <h2 class="text-2xl font-semibold mb-6 text-white-800 border-b pb-2">
+        <h2 class="text-2xl font-semibold mb-4 text-white-800 border-b pb-2">
           {{ weekdayName(weekday) }}
         </h2>
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div
             v-for="(regularClass, index) in group"
             :key="index"
-            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl max-w-[200px] max-h-[300px]"
+            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
             @click="openModal(regularClass)"
           >
             <img
@@ -38,18 +48,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- 이미지 그리드 아래에 추가 -->
-    <div class="mt-8 text-center">
-      <UButton
-        icon="i-heroicons-arrow-top-right-on-square"
-        size="lg"
-        color="primary"
-        @click="openNotionSchedule"
-      >
-        {{ $t("schedule.viewNotionSchedule") }}
-      </UButton>
     </div>
 
     <!-- 이미지 모달 -->

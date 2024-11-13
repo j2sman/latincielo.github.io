@@ -22,8 +22,8 @@
       "intro": "LatinCielo는 소라, 달콩 선생님을 중심으로 구성된 라틴댄스 동호회 겸 아카데미입니다.",
       "notice": "자세한 강습 정보는 일정 페이지를 참고해 주세요."
     },
-    "viewSchedule": "일정보기",
-    "viewMainInstructors": "메인강사소개보기"
+    "viewSchedule": "강습 일정 보기",
+    "viewMainInstructors": "메인 강사 소개 보기"
   },
   "schedule": {
     "title": "수업 일정",
