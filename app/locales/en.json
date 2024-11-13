@@ -1,0 +1,118 @@
+{
+  "app": {
+    "title": "LatinCielo - Latin Dance Academy",
+    "description": "LatinCielo is a Latin dance club and academy centered around instructors Sora and Dalkong.",
+    "copyright": "Copyright © {year} LatinCielo",
+    "bankAccount": "Bank Account",
+    "wooriBank": "Woori Bank",
+    "bankAccountCopied": "Bank account number copied",
+    "copyFailed": "Failed to copy bank account number"
+  },
+  "nav": {
+    "regularClass": "Regular Class",
+    "schedule": "Schedule",
+    "mainInstructors": "Main Instructors",
+    "internalInstructors": "Internal Instructors"
+  },
+  "regularClass": {
+    "title": "Regular Class Introduction",
+    "description": "Introducing LatinCielo's regular class programs.",
+    "cardTitle": "Regular Class Guide",
+    "content": {
+      "intro": "LatinCielo is a Latin dance club and academy centered around instructors Sora and Dalkong.",
+      "notice": "Please refer to the schedule page for detailed class information."
+    },
+    "viewSchedule": "View Schedule",
+    "viewMainInstructors": "View Main Instructors"
+  },
+  "schedule": {
+    "title": "Class Schedule",
+    "description": "Notion calendar will be connected.",
+    "weekdays": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "regularClasses": [
+      {
+        "id": 1,
+        "weekday": "2",
+        "title": "Tuesday - Real Sensual",
+        "description": "Tuesday Sensual Bachata Class",
+        "image": "https://i.imgur.com/psZspEQ.png"
+      },
+      {
+        "id": 2,
+        "weekday": "5",
+        "title": "Friday - Basic Bachazouk",
+        "description": "Friday Bachazouk Basic Class",
+        "image": "https://i.imgur.com/w1yt6qU.png"
+      },
+      {
+        "id": 3,
+        "weekday": "5",
+        "title": "Friday - Level Up Reels",
+        "description": "Friday Reels Advanced Class",
+        "image": "https://i.imgur.com/zQ5UnJK.png"
+      },
+      {
+        "id": 4,
+        "weekday": "0",
+        "title": "Sunday - Master Class",
+        "description": "Sunday Master Class",
+        "image": "https://i.imgur.com/S2W9WmG.png"
+      },
+      {
+        "id": 5,
+        "weekday": "0",
+        "title": "Sunday - Social Level Up",
+        "description": "Sunday Social Level Up Class",
+        "image": "https://i.imgur.com/hzzZNDr.png"
+      }
+    ]
+  },
+  "mainInstructors": {
+    "title": "Main Instructors Introduction",
+    "description": "Introducing LatinCielo's main instructors Sora and Dalkong.",
+    "viewSchedule": "View Schedule",
+    "naverCafe": "Naver Cafe",
+    "instagram": "Instagram",
+    "mainInstructor": "Main Instructor",
+    "sora": {
+      "name": "Sora",
+      "intro1": "Introduction1",
+      "intro2": "Introduction2",
+      "intro3": "Introduction3"
+    },
+    "dalkong": {
+      "name": "Dalkong",
+      "intro1": "Introduction1",
+      "intro2": "Introduction2",
+      "intro3": "Introduction3"
+    }
+  },
+  "internalInstructors": {
+    "title": "Internal Instructors Introduction",
+    "viewProfile": "View Profile",
+    "instructors": [
+      {
+        "id": 1,
+        "image": "https://i.imgur.com/pleWGEZ.png",
+        "name": "Internal Instructor 1",
+        "description": "Instructor introduction...",
+        "taplinkUrl": "https://taplink.cc/..."
+      },
+      {
+        "id": 2,
+        "image": "https://i.imgur.com/pleWGEZ.png",
+        "name": "Internal Instructor 2",
+        "description": "Instructor introduction...",
+        "taplinkUrl": "https://taplink.cc/..."
+      }
+    ]
+  }
+}

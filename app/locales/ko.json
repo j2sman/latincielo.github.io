@@ -1,0 +1,118 @@
+{
+  "app": {
+    "title": "LatinCielo - 라틴댄스 아카데미",
+    "description": "LatinCielo는 소라, 달콩 선생님을 중심으로 구성된 라틴댄스 동호회 겸 아카데미입니다.",
+    "copyright": "Copyright © {year} LatinCielo",
+    "bankAccount": "입금계좌",
+    "wooriBank": "우리은행",
+    "bankAccountCopied": "계좌번호가 복사되었습니다",
+    "copyFailed": "계좌번호 복사에 실패했습니다"
+  },
+  "nav": {
+    "regularClass": "정규강습",
+    "schedule": "일정",
+    "mainInstructors": "메인강사소개",
+    "internalInstructors": "내부강사"
+  },
+  "regularClass": {
+    "title": "정규 강습 소개",
+    "description": "LatinCielo의 정규 강습 프로그램을 소개합니다.",
+    "cardTitle": "정규 강습 안내",
+    "content": {
+      "intro": "LatinCielo는 소라, 달콩 선생님을 중심으로 구성된 라틴댄스 동호회 겸 아카데미입니다.",
+      "notice": "자세한 강습 정보는 일정 페이지를 참고해 주세요."
+    },
+    "viewSchedule": "일정보기",
+    "viewMainInstructors": "메인강사소개보기"
+  },
+  "schedule": {
+    "title": "수업 일정",
+    "description": "노션 캘린더가 연동될 예정입니다.",
+    "weekdays": {
+      "monday": "월요일",
+      "tuesday": "화요일",
+      "wednesday": "수요일",
+      "thursday": "목요일",
+      "friday": "금요일",
+      "saturday": "토요일",
+      "sunday": "일요일"
+    },
+    "regularClasses": [
+      {
+        "id": 1,
+        "weekday": "2",
+        "title": "화요 찐 센슈얼 반곡반",
+        "description": "화요일 센슈얼 바차타 클래스",
+        "image": "https://i.imgur.com/psZspEQ.png"
+      },
+      {
+        "id": 2,
+        "weekday": "5",
+        "title": "금요 바차주크 기본반",
+        "description": "금요일 바차타/주크 기초 클래스",
+        "image": "https://i.imgur.com/w1yt6qU.png"
+      },
+      {
+        "id": 3,
+        "weekday": "5",
+        "title": "금요 릴스 수료반",
+        "description": "금요일 릴스 심화 클래스",
+        "image": "https://i.imgur.com/zQ5UnJK.png"
+      },
+      {
+        "id": 4,
+        "weekday": "0",
+        "title": "일요 원리통합 마스터반",
+        "description": "일요일 통합 마스터 클래스",
+        "image": "https://i.imgur.com/S2W9WmG.png"
+      },
+      {
+        "id": 5,
+        "weekday": "0",
+        "title": "일요 온리소셜레벨업 반곡반",
+        "description": "일요일 소셜 레벨업 클래스",
+        "image": "https://i.imgur.com/hzzZNDr.png"
+      }
+    ]
+  },
+  "mainInstructors": {
+    "title": "메인 강사 소개",
+    "description": "LatinCielo의 메인 강사 소라, 달콩 선생님을 소개합니다.",
+    "viewSchedule": "강습 일정 보기",
+    "naverCafe": "네이버 카페",
+    "instagram": "인스타그램",
+    "mainInstructor": "메인 강사",
+    "sora": {
+      "name": "소라 (Sora)",
+      "intro1": "소개1",
+      "intro2": "소개2",
+      "intro3": "소개3"
+    },
+    "dalkong": {
+      "name": "달콩 (Dalkong)",
+      "intro1": "소개1",
+      "intro2": "소개2",
+      "intro3": "소개3"
+    }
+  },
+  "internalInstructors": {
+    "title": "내부 강사 소개",
+    "viewProfile": "프로필 보기",
+    "instructors": [
+      {
+        "id": 1,
+        "image": "https://i.imgur.com/pleWGEZ.png",
+        "name": "내부 강사 1",
+        "description": "강사 소개글...",
+        "taplinkUrl": "https://taplink.cc/..."
+      },
+      {
+        "id": 2,
+        "image": "https://i.imgur.com/pleWGEZ.png",
+        "name": "내부 강사 2",
+        "description": "강사 소개글...",
+        "taplinkUrl": "https://taplink.cc/..."
+      }
+    ]
+  }
+}
