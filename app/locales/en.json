@@ -44,39 +44,88 @@
     },
     "regularClasses": [
       {
-        "id": 1,
         "weekday": "2",
-        "title": "Tuesday - Real Sensual",
-        "description": "Tuesday Sensual Bachata Class",
-        "image": "https://i.imgur.com/mk8AOi5.png"
+        "title": "Tuesday - First Class",
+        "description": "Tuesday First Class",
+        "image": "https://images.latincielo.kr/Class/en/Tuesday1.png"
       },
       {
-        "id": 2,
+        "weekday": "2",
+        "title": "Tuesday - Second Class",
+        "description": "Tuesday Second Class",
+        "image": ""
+      },
+      {
+        "weekday": "2",
+        "title": "Tuesday - First Internal Class",
+        "description": "Tuesday First Internal Class",
+        "image": "https://images.latincielo.kr/Class/en/TuesdayInternal1.png"
+      },
+      {
+        "weekday": "3",
+        "title": "Wednesday - First Class",
+        "description": "Wednesday First Class",
+        "image": ""
+      },
+      {
+        "weekday": "3",
+        "title": "Wednesday - Second Class",
+        "description": "Wednesday Second Class",
+        "image": ""
+      },
+      {
+        "weekday": "4",
+        "title": "Thursday - First Class",
+        "description": "Thursday First Class",
+        "image": ""
+      },
+      {
+        "weekday": "4",
+        "title": "Thursday - Second Class",
+        "description": "Thursday Second Class",
+        "image": ""
+      },
+      {
         "weekday": "5",
-        "title": "Friday - Basic Bachazouk",
-        "description": "Friday Bachazouk Basic Class",
-        "image": "https://i.imgur.com/GDn9iaR.png"
+        "title": "Friday - First Class",
+        "description": "Friday First Class",
+        "image": "https://images.latincielo.kr/Class/en/Friday1.png"
       },
       {
-        "id": 3,
         "weekday": "5",
-        "title": "Friday - Level Up Reels",
-        "description": "Friday Reels Advanced Class",
-        "image": "https://i.imgur.com/FiP5PC3.png"
+        "title": "Friday - Second Class",
+        "description": "Friday Second Class",
+        "image": "https://images.latincielo.kr/Class/en/Friday2.png"
       },
       {
-        "id": 4,
-        "weekday": "0",
-        "title": "Sunday - Master Class",
-        "description": "Sunday Master Class",
-        "image": "https://i.imgur.com/nmUEN5C.png"
+        "weekday": "6",
+        "title": "Saturday - First Class",
+        "description": "Saturday First Class",
+        "image": ""
       },
       {
-        "id": 5,
+        "weekday": "6",
+        "title": "Saturday - Second Class",
+        "description": "Saturday Second Class",
+        "image": ""
+      },
+      {
         "weekday": "0",
-        "title": "Sunday - Social Level Up",
-        "description": "Sunday Social Level Up Class",
-        "image": "https://i.imgur.com/wuZXmK2.png"
+        "title": "Sunday - First Class",
+        "description": "Sunday First Class",
+        "image": "https://images.latincielo.kr/Class/en/Sunday1.png"
+      },
+      {
+        "weekday": "0",
+        "title": "Sunday - Second Class",
+        "description": "Sunday Second Class",
+        "image": "https://images.latincielo.kr/Class/en/Sunday2.png"
+      },
+      {
+        "weekday": "0",
+        "title": "Sunday - First Class (Internal)",
+        "description": "Sunday First Class (Internal)",
+        "image": ""
       }
     ]
   },
@@ -104,14 +153,14 @@
     "instructors": [
       {
         "id": 1,
-        "image": "https://i.imgur.com/6fEEKU0.png",
+        "image": "https://images.latincielo.kr/Instructor/Main/Sora.png",
         "name": "Internal Instructor 1",
         "description": "Instructor introduction...",
         "taplinkUrl": "https://taplink.cc/..."
       },
       {
         "id": 2,
-        "image": "https://i.imgur.com/6fEEKU0.png",
+        "image": "https://images.latincielo.kr/Instructor/Main/Dalkong.png",
         "name": "Internal Instructor 2",
         "description": "Instructor introduction...",
         "taplinkUrl": "https://taplink.cc/..."

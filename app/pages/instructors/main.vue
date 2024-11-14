@@ -16,7 +16,7 @@ useHead({
     <!-- <div
       class="absolute inset-0 z-0"
       style="
-        background-image: url('https://i.imgur.com/meC5drd.png');
+        background-image: url('https://images.latincielo.kr/Background/Image1.png');
         background-size: cover;
         background-position: center;
         opacity: 0.15;
@@ -24,7 +24,10 @@ useHead({
     ></div> -->
     <div class="video-background">
       <video autoplay muted loop>
-        <source src="https://i.imgur.com/Aylh5wo.mp4" type="video/mp4" />
+        <source
+          src="https://images.latincielo.kr/Background/Video1.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
 
@@ -38,7 +41,7 @@ useHead({
             <div
               class="absolute inset-0 z-0 w-full h-full"
               style="
-                background-image: url('https://i.imgur.com/6fEEKU0.png');
+                background-image: url('https://images.latincielo.kr/Instructor/Main/Sora.png');
                 background-size: 100% 100%;
                 background-position: center;
                 opacity: 0.15;
@@ -76,7 +79,7 @@ useHead({
             <div
               class="absolute inset-0 z-0 w-full h-full"
               style="
-                background-image: url('https://i.imgur.com/jtJOXt7.png');
+                background-image: url('https://images.latincielo.kr/Instructor/Main/Dalkong.png');
                 background-size: 100% 100%;
                 background-position: center;
                 opacity: 0.15;

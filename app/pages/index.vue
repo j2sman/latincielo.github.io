@@ -12,7 +12,10 @@ useHead({
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="video-background">
       <video autoplay muted loop>
-        <source src="https://i.imgur.com/xmj9N5z.mp4" type="video/mp4" />
+        <source
+          src="https://images.latincielo.kr/Background/Video2.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
     <UContainer>
@@ -24,7 +27,7 @@ useHead({
       >
         <img
           class="w-full h-auto"
-          src="https://i.imgur.com/lMdyFqv.png"
+          src="https://images.latincielo.kr/Class/ko/Total.png"
           :alt="t('regularClass.cardTitle')"
         />
       </div>

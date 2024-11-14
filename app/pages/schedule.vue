@@ -2,7 +2,10 @@
   <div class="container mx-auto px-4 py-8">
     <div class="video-background">
       <video autoplay muted loop>
-        <source src="https://i.imgur.com/bsjLtfv.mp4" type="video/mp4" />
+        <source
+          src="https://images.latincielo.kr/Background/Video3.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
     <div class="flex justify-between items-center mb-8">
@@ -20,15 +23,26 @@
     </div>
 
     <!-- 요일별 그리드를 주간 달력 형태로 변경 -->
-    <div class="grid grid-cols-7 gap-2 md:gap-4 bg-gray-800/20 rounded-xl p-2 md:p-4">
-      <template v-for="weekday in 7" :key="weekday-1">
+    <div
+      class="grid grid-cols-7 gap-2 md:gap-4 bg-gray-800/20 rounded-xl p-2 md:p-4"
+    >
+      <template v-for="weekday in 7" :key="weekday - 1">
         <div class="flex flex-col">
-          <h2 class="text-sm md:text-lg font-semibold mb-1 md:mb-2 text-white-800 text-center border-b pb-1 md:pb-2 truncate">
-            {{ weekdayName(weekday-1) }}
+          <h2
+            class="text-sm md:text-lg font-semibold mb-1 md:mb-2 text-white-800 text-center border-b pb-1 md:pb-2 truncate"
+          >
+            {{ weekdayName(weekday - 1) }}
           </h2>
           <div class="flex flex-col gap-4">
             <div
-              v-for="(regularClass, index) in (groupedImages[weekday-1] || [])"
+              v-if="!regularClassImagesData.length"
+              class="text-center text-gray-400"
+            >
+              로딩 중...
+            </div>
+            <div
+              v-else
+              v-for="(regularClass, index) in groupedImages[weekday - 1] || []"
               :key="index"
               class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
               @click="openModal(regularClass)"
@@ -77,53 +91,45 @@
 const { t, tm, locale } = useI18n();
 const isModalOpen = ref(false);
 const selectedImage = ref(null);
+const regularClassImagesData = ref([]);
 
-const regularClassImages = computed(() => {
+const loadRegularClassImages = async () => {
   try {
     const regularClasses = tm("schedule.regularClasses");
 
     if (Array.isArray(regularClasses)) {
-      if (process.env.NODE_ENV === "development") {
-        return regularClasses.map((regularClass) => ({
-          id: regularClass.id,
-          title:
-            regularClass.title?.body?.static ||
-            regularClass.title?.loc?.source ||
-            "",
-          description:
-            regularClass.description?.body?.static ||
-            regularClass.description?.loc?.source ||
-            "",
-          image:
-            regularClass.image?.body?.static ||
-            regularClass.image?.loc?.source ||
-            "",
-          weekday:
-            regularClass.weekday?.body?.static ||
-            regularClass.weekday?.loc?.source ||
-            0,
-        }));
-      } else {
-        return regularClasses.map((regularClass) => ({
-          id: regularClass.id,
-          title: regularClass.title?.b?.s || "",
-          description: regularClass.description?.b?.s || "",
-          image: regularClass.image?.b?.s || "",
-          weekday: parseInt(regularClass.weekday?.b?.s) || 0,
-        }));
-      }
-    }
+      const processClasses = (classes) => {
+        return classes.map(regularClass => {
+          const imageUrl = process.env.NODE_ENV === "development"
+            ? regularClass.image?.body?.static || regularClass.image?.loc?.source || ""
+            : regularClass.image?.b?.s || "";
 
-    return [];
+          return {
+            title: process.env.NODE_ENV === "development"
+              ? regularClass.title?.body?.static || regularClass.title?.loc?.source || ""
+              : regularClass.title?.b?.s || "",
+            description: process.env.NODE_ENV === "development"
+              ? regularClass.description?.body?.static || regularClass.description?.loc?.source || ""
+              : regularClass.description?.b?.s || "",
+            image: imageUrl,
+            weekday: process.env.NODE_ENV === "development"
+              ? regularClass.weekday?.body?.static || regularClass.weekday?.loc?.source || 0
+              : parseInt(regularClass.weekday?.b?.s) || 0,
+          };
+        }).filter(item => item.image);
+      };
+
+      regularClassImagesData.value = processClasses(regularClasses);
+    }
   } catch (error) {
-    console.error("Error loading instructors:", error);
-    return [];
+    console.error("수업 정보 로딩 중 오류:", error);
+    regularClassImagesData.value = [];
   }
-});
+};
 
 const groupedImages = computed(() => {
   const groups = {};
-  regularClassImages.value.forEach((item) => {
+  regularClassImagesData.value.forEach((item) => {
     if (!groups[item.weekday]) {
       groups[item.weekday] = [];
     }
@@ -163,6 +169,11 @@ function openNotionSchedule() {
     "noopener,noreferrer"
   );
 }
+
+// 컴포넌트가 마운트될 때 데이터 로드
+onMounted(() => {
+  loadRegularClassImages();
+});
 </script>
 
 <style scoped>

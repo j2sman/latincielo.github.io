@@ -2,7 +2,10 @@
   <div class="container mx-auto px-4 py-8">
     <div class="video-background">
       <video autoplay muted loop>
-        <source src="https://i.imgur.com/4PIYHAV.mp4" type="video/mp4" />
+        <source
+          src="https://images.latincielo.kr/Background/Video4.mp4"
+          type="video/mp4"
+        />
       </video>
     </div>
     <h1 class="text-4xl font-bold mb-8">

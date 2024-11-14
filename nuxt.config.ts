@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   ssr: true,
   target: "static",
   image: {
-    domains: ["i.imgur.com"], // 외부 이미지 도메인 허용
+    domains: ["i.imgur.com", "images.latincielo.kr"], // 외부 이미지 도메인 허용
   },
   modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxtjs/i18n", "@vueuse/nuxt"],
   extends: ["@nuxt/ui-pro"],
