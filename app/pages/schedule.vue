@@ -34,7 +34,7 @@
           {{ $t("schedule.onlineClasses") }}
         </h2>
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          class="grid grid-cols-7 gap-2 md:gap-4"
         >
           <div
             v-for="(onlineClass, index) in onlineClasses"

@@ -1,5 +1,13 @@
 <template>
   <div class="container mx-auto px-4 py-8">
+    <div class="video-background">
+      <video autoplay muted loop>
+        <source
+          src="https://images.latincielo.kr/Background/Video5.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
     <h1 class="text-3xl font-bold mb-8">{{ $t("history.title") }}</h1>
 
     <div class="grid gap-8">
@@ -42,23 +50,30 @@
 </template>
 
 <script setup>
-const history = ref([
-  {
-    type: "youtube",
-    url: "https://www.youtube.com/watch?v=example1",
-    title: "2024 봄 공연",
-    date: "2024-03-15",
-    description: "봄 시즌 정기 공연 하이라이트",
-  },
-  {
-    type: "image",
-    url: "/images/concert-2023.jpg",
-    title: "2023 겨울 워크샵",
-    date: "2023-12-20",
-    description: "연말 워크샵 및 공연 준비 모습",
-  },
-  // 더 많은 활동 내역을 여기에 추가할 수 있습니다
-]);
+const { locale } = useI18n();
+const history = ref([]);
+
+// JSON 데이터 가져오기
+const fetchHistoryData = async () => {
+  try {
+    const response = await fetch(`https://images.latincielo.kr/History/${locale.value}/data.json`);
+    const data = await response.json();
+    history.value = data.history;
+  } catch (error) {
+    console.error('히스토리 데이터를 불러오는데 실패했습니다:', error);
+    history.value = []; // 에러 발생시 빈 배열로 초기화
+  }
+};
+
+// locale이 변경될 때마다 데이터 다시 가져오기
+watch(locale, () => {
+  fetchHistoryData();
+});
+
+// 컴포넌트 마운트 시 초기 데이터 가져오기
+onMounted(() => {
+  fetchHistoryData();
+});
 
 // 날짜 기준 내림차순 정렬
 const sortedHistory = computed(() => {
@@ -75,5 +90,36 @@ function getYoutubeEmbedUrl(url) {
 <style scoped>
 .container {
   max-width: 1200px;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 여기서 투명도 조절 (0.2 = 60% 투명) */
+}
+
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
