@@ -19,42 +19,38 @@
       </UButton>
     </div>
 
-    <!-- 요일별 그리드 -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-    >
-      <div
-        v-for="(group, weekday) in groupedImages"
-        :key="weekday"
-        class="bg-gray-800/20 rounded-xl p-4"
-      >
-        <h2 class="text-2xl font-semibold mb-4 text-white-800 border-b pb-2">
-          {{ weekdayName(weekday) }}
-        </h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div
-            v-for="(regularClass, index) in group"
-            :key="index"
-            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
-            @click="openModal(regularClass)"
-          >
-            <img
-              :src="regularClass.image"
-              :alt="regularClass.title"
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
+    <!-- 요일별 그리드를 주간 달력 형태로 변경 -->
+    <div class="grid grid-cols-7 gap-4 bg-gray-800/20 rounded-xl p-4">
+      <template v-for="weekday in 7" :key="weekday-1">
+        <div class="flex flex-col">
+          <h2 class="text-lg font-semibold mb-2 text-white-800 text-center border-b pb-2">
+            {{ weekdayName(weekday-1) }}
+          </h2>
+          <div class="flex flex-col gap-4">
             <div
-              class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center"
+              v-for="(regularClass, index) in (groupedImages[weekday-1] || [])"
+              :key="index"
+              class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
+              @click="openModal(regularClass)"
             >
-              <h3
-                class="text-white text-lg font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              <img
+                :src="regularClass.image"
+                :alt="regularClass.title"
+                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div
+                class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center"
               >
-                {{ regularClass.title }}
-              </h3>
+                <h3
+                  class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2"
+                >
+                  {{ regularClass.title }}
+                </h3>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </template>
     </div>
 
     <!-- 이미지 모달 -->
