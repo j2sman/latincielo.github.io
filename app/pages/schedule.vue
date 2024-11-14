@@ -26,6 +26,41 @@
     <div
       class="grid grid-cols-7 gap-2 md:gap-4 bg-gray-800/20 rounded-xl p-2 md:p-4"
     >
+      <!-- 온라인 수업 섹션 추가 -->
+      <div class="col-span-7 mb-4">
+        <h2
+          class="text-lg md:text-xl font-semibold mb-2 text-white-800 border-b pb-2"
+        >
+          {{ $t("schedule.onlineClasses") }}
+        </h2>
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+        >
+          <div
+            v-for="(onlineClass, index) in onlineClasses"
+            :key="index"
+            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
+            @click="openModal(onlineClass)"
+          >
+            <img
+              :src="onlineClass.image"
+              :alt="onlineClass.title"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center"
+            >
+              <h3
+                class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2"
+              >
+                {{ onlineClass.title }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 기존 요일별 그리드 -->
       <template v-for="weekday in 7" :key="weekday - 1">
         <div class="flex flex-col">
           <h2
@@ -99,24 +134,38 @@ const loadRegularClassImages = async () => {
 
     if (Array.isArray(regularClasses)) {
       const processClasses = (classes) => {
-        return classes.map(regularClass => {
-          const imageUrl = process.env.NODE_ENV === "development"
-            ? regularClass.image?.body?.static || regularClass.image?.loc?.source || ""
-            : regularClass.image?.b?.s || "";
+        return classes
+          .map((regularClass) => {
+            const imageUrl =
+              process.env.NODE_ENV === "development"
+                ? regularClass.image?.body?.static ||
+                  regularClass.image?.loc?.source ||
+                  ""
+                : regularClass.image?.b?.s || "";
 
-          return {
-            title: process.env.NODE_ENV === "development"
-              ? regularClass.title?.body?.static || regularClass.title?.loc?.source || ""
-              : regularClass.title?.b?.s || "",
-            description: process.env.NODE_ENV === "development"
-              ? regularClass.description?.body?.static || regularClass.description?.loc?.source || ""
-              : regularClass.description?.b?.s || "",
-            image: imageUrl,
-            weekday: process.env.NODE_ENV === "development"
-              ? regularClass.weekday?.body?.static || regularClass.weekday?.loc?.source || 0
-              : parseInt(regularClass.weekday?.b?.s) || 0,
-          };
-        }).filter(item => item.image);
+            return {
+              title:
+                process.env.NODE_ENV === "development"
+                  ? regularClass.title?.body?.static ||
+                    regularClass.title?.loc?.source ||
+                    ""
+                  : regularClass.title?.b?.s || "",
+              description:
+                process.env.NODE_ENV === "development"
+                  ? regularClass.description?.body?.static ||
+                    regularClass.description?.loc?.source ||
+                    ""
+                  : regularClass.description?.b?.s || "",
+              image: imageUrl,
+              weekday:
+                process.env.NODE_ENV === "development"
+                  ? parseInt(regularClass.weekday?.body?.static) ||
+                    parseInt(regularClass.weekday?.loc?.source) ||
+                    0
+                  : parseInt(regularClass.weekday?.b?.s) || 0,
+            };
+          })
+          .filter((item) => item.image);
       };
 
       regularClassImagesData.value = processClasses(regularClasses);
@@ -127,14 +176,20 @@ const loadRegularClassImages = async () => {
   }
 };
 
+const onlineClasses = computed(() => {
+  return regularClassImagesData.value.filter((item) => item.weekday === -1);
+});
+
 const groupedImages = computed(() => {
   const groups = {};
-  regularClassImagesData.value.forEach((item) => {
-    if (!groups[item.weekday]) {
-      groups[item.weekday] = [];
-    }
-    groups[item.weekday].push(item);
-  });
+  regularClassImagesData.value
+    .filter((item) => item.weekday !== -1) // 온라인 수업 제외
+    .forEach((item) => {
+      if (!groups[item.weekday]) {
+        groups[item.weekday] = [];
+      }
+      groups[item.weekday].push(item);
+    });
   return groups;
 });
 

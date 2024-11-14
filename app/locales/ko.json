@@ -11,6 +11,7 @@
   "nav": {
     "regularClass": "정규강습",
     "schedule": "일정",
+    "history": "활동내역",
     "mainInstructors": "메인강사소개",
     "internalInstructors": "내부강사"
   },
@@ -29,10 +30,14 @@
     "viewSchedule": "강습 일정 보기",
     "viewMainInstructors": "메인 강사 소개 보기"
   },
+  "history": {
+    "title": "활동 내역"
+  },
   "schedule": {
     "title": "수업 일정",
     "description": "노션 캘린더가 연동될 예정입니다.",
     "viewNotionSchedule": "노션 캘린더",
+    "onlineClasses": "온라인 수업",
     "weekdays": {
       "monday": "월요일",
       "tuesday": "화요일",
@@ -101,7 +106,7 @@
         "weekday": "6",
         "title": "토요일 - 1교시",
         "description": "토요일 1교시",
-        "image": ""
+        "image": "https://images.latincielo.kr/Class/ko/Saturday1.png"
       },
       {
         "weekday": "6",
@@ -126,6 +131,24 @@
         "title": "일요일 - 1교시(내부강사)",
         "description": "일요일 1교시(내부강사)",
         "image": ""
+      },
+      {
+        "weekday": "-1",
+        "title": "온라인 #1",
+        "description": "온라인 #1",
+        "image": "https://images.latincielo.kr/Class/ko/Online1.png"
+      },
+      {
+        "weekday": "-1",
+        "title": "온라인 #2",
+        "description": "온라인 #2",
+        "image": "https://images.latincielo.kr/Class/ko/Online2.png"
+      },
+      {
+        "weekday": "-1",
+        "title": "온라인 #3",
+        "description": "온라인 #3",
+        "image": "https://images.latincielo.kr/Class/ko/Online3.png"
       }
     ]
   },

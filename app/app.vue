@@ -15,19 +15,24 @@ const links = computed(() => [
     to: locale.value === "ko" ? "/schedule" : `/${locale.value}/schedule`,
   },
   {
-    label: t("nav.mainInstructors"),
-    to:
-      locale.value === "ko"
-        ? "/instructors/main"
-        : `/${locale.value}/instructors/main`,
+    label: t("nav.history"),
+    to: locale.value === "ko" ? "/history" : `/${locale.value}/history`,
   },
-  {
-    label: t("nav.internalInstructors"),
-    to:
-      locale.value === "ko"
-        ? "/instructors/internal"
-        : `/${locale.value}/instructors/internal`,
-  },
+  // 2024.11.14 현재 아직 미완성이므로 숨김
+  // {
+  //   label: t("nav.mainInstructors"),
+  //   to:
+  //     locale.value === "ko"
+  //       ? "/instructors/main"
+  //       : `/${locale.value}/instructors/main`,
+  // },
+  // {
+  //   label: t("nav.internalInstructors"),
+  //   to:
+  //     locale.value === "ko"
+  //       ? "/instructors/internal"
+  //       : `/${locale.value}/instructors/internal`,
+  // },
 ]);
 
 const title = useI18n().t("app.title");

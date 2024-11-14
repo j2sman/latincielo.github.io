@@ -11,6 +11,7 @@
   "nav": {
     "regularClass": "Regular Class",
     "schedule": "Schedule",
+    "history": "History",
     "mainInstructors": "Main Instructors",
     "internalInstructors": "Internal Instructors"
   },
@@ -29,10 +30,14 @@
     "viewSchedule": "View Schedule",
     "viewMainInstructors": "View Main Instructors"
   },
+  "history": {
+    "title": "Activity History"
+  },
   "schedule": {
     "title": "Class Schedule",
     "description": "Notion calendar will be connected.",
     "viewNotionSchedule": "View Notion",
+    "onlineClasses": "Online Classes",
     "weekdays": {
       "monday": "Monday",
       "tuesday": "Tuesday",
@@ -101,7 +106,7 @@
         "weekday": "6",
         "title": "Saturday - First Class",
         "description": "Saturday First Class",
-        "image": ""
+        "image": "https://images.latincielo.kr/Class/en/Saturday1.png"
       },
       {
         "weekday": "6",
@@ -126,6 +131,24 @@
         "title": "Sunday - First Class (Internal)",
         "description": "Sunday First Class (Internal)",
         "image": ""
+      },
+      {
+        "weekday": "-1",
+        "title": "Online #1",
+        "description": "Online #1",
+        "image": "https://images.latincielo.kr/Class/en/Online1.png"
+      },
+      {
+        "weekday": "-1",
+        "title": "Online #2",
+        "description": "Online #2",
+        "image": "https://images.latincielo.kr/Class/en/Online2.png"
+      },
+      {
+        "weekday": "-1",
+        "title": "Online #3",
+        "description": "Online #3",
+        "image": "https://images.latincielo.kr/Class/en/Online3.png"
       }
     ]
   },
