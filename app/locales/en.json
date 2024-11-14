@@ -18,6 +18,10 @@
     "title": "Regular Class Introduction",
     "description": "Introducing LatinCielo's regular class programs.",
     "cardTitle": "Regular Class Guide",
+    "naverCafe": "Naver Cafe",
+    "instagram": "Instagram",
+    "youtube": "Youtube",
+    "kakaotalk": "Kakaotalk",
     "content": {
       "intro": "LatinCielo is a Latin dance club and academy centered around instructors Sora and Dalkong.",
       "notice": "Please refer to the schedule page for detailed class information."
@@ -44,35 +48,35 @@
         "weekday": "2",
         "title": "Tuesday - Real Sensual",
         "description": "Tuesday Sensual Bachata Class",
-        "image": "https://i.imgur.com/psZspEQ.png"
+        "image": "https://i.imgur.com/mk8AOi5.png"
       },
       {
         "id": 2,
         "weekday": "5",
         "title": "Friday - Basic Bachazouk",
         "description": "Friday Bachazouk Basic Class",
-        "image": "https://i.imgur.com/w1yt6qU.png"
+        "image": "https://i.imgur.com/GDn9iaR.png"
       },
       {
         "id": 3,
         "weekday": "5",
         "title": "Friday - Level Up Reels",
         "description": "Friday Reels Advanced Class",
-        "image": "https://i.imgur.com/zQ5UnJK.png"
+        "image": "https://i.imgur.com/FiP5PC3.png"
       },
       {
         "id": 4,
         "weekday": "0",
         "title": "Sunday - Master Class",
         "description": "Sunday Master Class",
-        "image": "https://i.imgur.com/S2W9WmG.png"
+        "image": "https://i.imgur.com/nmUEN5C.png"
       },
       {
         "id": 5,
         "weekday": "0",
         "title": "Sunday - Social Level Up",
         "description": "Sunday Social Level Up Class",
-        "image": "https://i.imgur.com/hzzZNDr.png"
+        "image": "https://i.imgur.com/wuZXmK2.png"
       }
     ]
   },
@@ -80,8 +84,6 @@
     "title": "Main Instructors Introduction",
     "description": "Introducing LatinCielo's main instructors Sora and Dalkong.",
     "viewSchedule": "View Schedule",
-    "naverCafe": "Naver Cafe",
-    "instagram": "Instagram",
     "mainInstructor": "Main Instructor",
     "sora": {
       "name": "Sora",
@@ -102,14 +104,14 @@
     "instructors": [
       {
         "id": 1,
-        "image": "https://i.imgur.com/pleWGEZ.png",
+        "image": "https://i.imgur.com/6fEEKU0.png",
         "name": "Internal Instructor 1",
         "description": "Instructor introduction...",
         "taplinkUrl": "https://taplink.cc/..."
       },
       {
         "id": 2,
-        "image": "https://i.imgur.com/pleWGEZ.png",
+        "image": "https://i.imgur.com/6fEEKU0.png",
         "name": "Internal Instructor 2",
         "description": "Instructor introduction...",
         "taplinkUrl": "https://taplink.cc/..."

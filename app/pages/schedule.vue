@@ -1,5 +1,10 @@
 <template>
   <div class="container mx-auto px-4 py-8">
+    <div class="video-background">
+      <video autoplay muted loop>
+        <source src="https://i.imgur.com/bsjLtfv.mp4" type="video/mp4" />
+      </video>
+    </div>
     <div class="flex justify-between items-center mb-8">
       <h1 class="text-4xl font-bold">
         {{ $t("schedule.title") }}
@@ -15,7 +20,9 @@
     </div>
 
     <!-- 요일별 그리드 -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+    >
       <div
         v-for="(group, weekday) in groupedImages"
         :key="weekday"
@@ -171,5 +178,40 @@ function openNotionSchedule() {
 .modal-enter-from,
 .modal-leave-to {
   opacity: 0;
+}
+
+.min-h-screen {
+  min-height: calc(100vh - 64px); /* 헤더 높이만큼 빼기 */
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.video-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 여기서 투명도 조절 (0.2 = 60% 투명) */
+}
+
+.video-background video {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>

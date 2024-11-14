@@ -16,7 +16,7 @@ useHead({
     <!-- <div
       class="absolute inset-0 z-0"
       style="
-        background-image: url('https://i.imgur.com/7MN0F1F.png');
+        background-image: url('https://i.imgur.com/meC5drd.png');
         background-size: cover;
         background-position: center;
         opacity: 0.15;
@@ -24,7 +24,7 @@ useHead({
     ></div> -->
     <div class="video-background">
       <video autoplay muted loop>
-        <source src="https://i.imgur.com/gqsH04H.mp4" type="video/mp4" />
+        <source src="https://i.imgur.com/Aylh5wo.mp4" type="video/mp4" />
       </video>
     </div>
 
@@ -32,48 +32,13 @@ useHead({
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <UContainer>
         <h1 class="text-4xl font-bold mb-12 text-center">{{ title }}</h1>
-
-        <!-- CTA 섹션을 여기로 이동 -->
-        <div class="mb-12 text-center space-y-4">
-          <div class="flex justify-center gap-4">
-            <UButton
-              icon="i-heroicons-calendar"
-              :to="'/schedule'"
-              size="lg"
-              color="primary"
-            >
-              {{ $t("mainInstructors.viewSchedule") }}
-            </UButton>
-
-            <UButton
-              icon="i-simple-icons-naver"
-              :to="'https://cafe.naver.com/latinblack'"
-              target="_blank"
-              size="lg"
-              color="green"
-            >
-              {{ $t("mainInstructors.naverCafe") }}
-            </UButton>
-
-            <UButton
-              icon="i-simple-icons-instagram"
-              :to="'https://www.instagram.com/latin_cielo'"
-              target="_blank"
-              size="lg"
-              color="purple"
-            >
-              {{ $t("mainInstructors.instagram") }}
-            </UButton>
-          </div>
-        </div>
-
         <div class="grid md:grid-cols-2 gap-8">
           <!-- 소라쌤 소개 -->
           <UCard class="relative overflow-hidden h-full">
             <div
               class="absolute inset-0 z-0 w-full h-full"
               style="
-                background-image: url('https://i.imgur.com/pleWGEZ.png');
+                background-image: url('https://i.imgur.com/6fEEKU0.png');
                 background-size: 100% 100%;
                 background-position: center;
                 opacity: 0.15;
@@ -111,7 +76,7 @@ useHead({
             <div
               class="absolute inset-0 z-0 w-full h-full"
               style="
-                background-image: url('https://i.imgur.com/qxIr5RR.png');
+                background-image: url('https://i.imgur.com/jtJOXt7.png');
                 background-size: 100% 100%;
                 background-position: center;
                 opacity: 0.15;
@@ -162,6 +127,16 @@ useHead({
   height: 100%;
   z-index: -1;
   overflow: hidden;
+}
+
+.video-background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* 여기서 투명도 조절 (0.2 = 60% 투명) */
 }
 
 .video-background video {
