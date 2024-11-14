@@ -32,7 +32,7 @@
   "schedule": {
     "title": "Class Schedule",
     "description": "Notion calendar will be connected.",
-    "viewNotionSchedule": "View Notion Schedule",
+    "viewNotionSchedule": "View Notion",
     "weekdays": {
       "monday": "Monday",
       "tuesday": "Tuesday",

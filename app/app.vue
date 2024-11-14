@@ -70,24 +70,25 @@ const onBeforeEnter = async () => {
     <UNotifications />
     <UHeader :links="links">
       <template #logo>
-        <NuxtLink to="/" class="text-xl font-bold">LatinCielo</NuxtLink>
+        <NuxtLink to="/" class="text-lg font-bold">LatinCielo</NuxtLink>
       </template>
 
       <template #right>
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-2 sm:gap-4">
           <UPopover mode="click" :popper-class="'!p-0'">
             <UButton
               color="gray"
               variant="ghost"
               :label="t('app.bankAccount')"
               icon="i-heroicons-credit-card"
+              class="text-xs sm:text-base"
             />
 
             <template #panel>
               <div class="p-4 flex flex-col gap-2">
-                <p class="text-sm font-medium">{{ t("app.wooriBank") }}</p>
+                <p class="text-xs font-medium">{{ t("app.wooriBank") }}</p>
                 <div class="flex items-center gap-2">
-                  <span class="text-sm">010-5008-5774</span>
+                  <span class="text-xs">010-5008-5774</span>
                   <UButton
                     color="gray"
                     variant="ghost"
@@ -115,6 +116,7 @@ const onBeforeEnter = async () => {
             v-for="curLocale in availableLocales"
             :key="curLocale.code"
             :to="switchLocalePath(curLocale.code)"
+            class="text-xs sm:text-base"
           >
             {{ curLocale.name }}
           </NuxtLink>

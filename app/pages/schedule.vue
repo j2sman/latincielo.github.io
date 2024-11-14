@@ -20,10 +20,10 @@
     </div>
 
     <!-- 요일별 그리드를 주간 달력 형태로 변경 -->
-    <div class="grid grid-cols-7 gap-4 bg-gray-800/20 rounded-xl p-4">
+    <div class="grid grid-cols-7 gap-2 md:gap-4 bg-gray-800/20 rounded-xl p-2 md:p-4">
       <template v-for="weekday in 7" :key="weekday-1">
         <div class="flex flex-col">
-          <h2 class="text-lg font-semibold mb-2 text-white-800 text-center border-b pb-2">
+          <h2 class="text-sm md:text-lg font-semibold mb-1 md:mb-2 text-white-800 text-center border-b pb-1 md:pb-2 truncate">
             {{ weekdayName(weekday-1) }}
           </h2>
           <div class="flex flex-col gap-4">
