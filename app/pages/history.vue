@@ -50,11 +50,11 @@ const youtubeVideos = ref([]);
 // YouTube RSS 피드에서 데이터 가져오기
 const fetchYoutubeVideos = async () => {
   try {
-    // [소라&달콩] 일상-Vlog 재생 목록 기준
-    // https://www.youtube.com/watch?v=ik-GwMbKacg&list=PLDyLj6U7XhNgojuqKRv7TOsUSulOD-b1Z
+    // 라틴씨엘로 💚소셜/공연/뮤비영상💚
+    // https://www.youtube.com/watch?v=ik-GwMbKacg&list=PLDyLj6U7XhNjDzg1WJcgB2mU3q27TQRZL
     // CORS 우회를 위한 프록시 서버 사용
     const PROXY_URL = "https://api.allorigins.win/raw?url=";
-    const PLAYLIST_ID = "PLDyLj6U7XhNgojuqKRv7TOsUSulOD-b1Z";
+    const PLAYLIST_ID = "PLDyLj6U7XhNjDzg1WJcgB2mU3q27TQRZL";
     const RSS_URL = `https://www.youtube.com/feeds/videos.xml?playlist_id=${PLAYLIST_ID}`;
 
     const response = await fetch(PROXY_URL + encodeURIComponent(RSS_URL));
