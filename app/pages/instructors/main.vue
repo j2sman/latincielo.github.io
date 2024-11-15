@@ -25,7 +25,7 @@ useHead({
     <div class="video-background">
       <video autoplay muted loop preload="none">
         <source
-          src="https://images.latincielo.kr/Background/Video1.mp4"
+          src="https://images.latincielo.kr/Background/Video_Main.mp4"
           type="video/mp4"
         />
       </video>

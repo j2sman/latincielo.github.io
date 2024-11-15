@@ -3,7 +3,7 @@
     <div class="video-background">
       <video autoplay muted loop preload="none">
         <source
-          src="https://images.latincielo.kr/Background/Video3.mp4"
+          src="https://images.latincielo.kr/Background/Video_Schedule.mp4"
           type="video/mp4"
         />
       </video>
