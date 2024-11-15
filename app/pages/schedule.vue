@@ -26,40 +26,6 @@
     <div
       class="grid grid-cols-7 gap-2 md:gap-4 bg-gray-800/20 rounded-xl p-2 md:p-4"
     >
-      <!-- 온라인 수업 섹션 추가 -->
-      <div class="col-span-7 mb-4">
-        <h2
-          class="text-lg md:text-xl font-semibold mb-2 text-white-800 border-b pb-2"
-        >
-          {{ $t("schedule.onlineClasses") }}
-        </h2>
-        <div class="grid grid-cols-7 gap-2 md:gap-4">
-          <div
-            v-for="(onlineClass, index) in onlineClasses"
-            :key="index"
-            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
-            @click="openModal(onlineClass)"
-          >
-            <img
-              :src="onlineClass.image"
-              :alt="onlineClass.title"
-              loading="eager"
-              fetchpriority="high"
-              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-            />
-            <div
-              class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center"
-            >
-              <h3
-                class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2"
-              >
-                {{ onlineClass.title }}
-              </h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <!-- 기존 요일별 그리드 -->
       <template v-for="weekday in 7" :key="weekday - 1">
         <div class="flex flex-col">
@@ -102,6 +68,74 @@
           </div>
         </div>
       </template>
+
+      <!-- 온라인 수업 섹션 추가 -->
+      <div class="col-span-7 mb-4">
+        <h2
+          class="text-lg md:text-xl font-semibold mb-2 text-white-800 border-b pb-2"
+        >
+          {{ $t("schedule.onlineClasses") }}
+        </h2>
+        <div class="grid grid-cols-7 gap-2 md:gap-4">
+          <div
+            v-for="(onlineClass, index) in onlineClasses"
+            :key="index"
+            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
+            @click="openModal(onlineClass)"
+          >
+            <img
+              :src="onlineClass.image"
+              :alt="onlineClass.title"
+              loading="eager"
+              fetchpriority="high"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center"
+            >
+              <h3
+                class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2"
+              >
+                {{ onlineClass.title }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 워크샵 & 페스티벌 섹션 -->
+      <div class="col-span-7 mb-4">
+        <h2
+          class="text-lg md:text-xl font-semibold mb-2 text-white-800 border-b pb-2"
+        >
+          {{ $t("schedule.workshopAndFestival") }}
+        </h2>
+        <div class="grid grid-cols-7 gap-2 md:gap-4">
+          <div
+            v-for="(class_, index) in workshopAndFestivalClasses"
+            :key="index"
+            class="group relative aspect-square cursor-pointer overflow-hidden rounded-xl"
+            @click="openModal(class_)"
+          >
+            <img
+              :src="class_.image"
+              :alt="class_.title"
+              loading="eager"
+              fetchpriority="high"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div
+              class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center"
+            >
+              <h3
+                class="text-white text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-center px-2"
+              >
+                {{ class_.title }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 이미지 모달 -->
@@ -182,6 +216,12 @@ const loadRegularClassImages = async () => {
 
 const onlineClasses = computed(() => {
   return regularClassImagesData.value.filter((item) => item.weekday === -1);
+});
+
+const workshopAndFestivalClasses = computed(() => {
+  return regularClassImagesData.value.filter(
+    (item) => item.weekday === -2 || item.weekday === -3
+  );
 });
 
 const groupedImages = computed(() => {

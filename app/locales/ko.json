@@ -39,6 +39,7 @@
     "description": "노션 캘린더가 연동될 예정입니다.",
     "viewNotionSchedule": "노션 캘린더",
     "onlineClasses": "온라인 수업",
+    "workshopAndFestival": "워크샵 & 페스티벌",
     "weekdays": {
       "monday": "월요일",
       "tuesday": "화요일",
@@ -150,6 +151,30 @@
         "title": "온라인 #3",
         "description": "온라인 #3",
         "image": "https://images.latincielo.kr/Class/ko/Online3.png"
+      },
+      {
+        "weekday": "-2",
+        "title": "워크샵 #1",
+        "description": "워크샵 #1",
+        "image": "https://images.latincielo.kr/Class/ko/Workshop1.png"
+      },
+      {
+        "weekday": "-2",
+        "title": "워크샵 #2",
+        "description": "워크샵 #2",
+        "image": "https://images.latincielo.kr/Class/ko/Workshop2.png"
+      },
+      {
+        "weekday": "-3",
+        "title": "페스티벌 #1",
+        "description": "페스티벌 #1",
+        "image": "https://images.latincielo.kr/Class/ko/Festival1.png"
+      },
+      {
+        "weekday": "-3",
+        "title": "페스티벌 #2",
+        "description": "페스티벌 #2",
+        "image": "https://images.latincielo.kr/Class/ko/Festival2.png"
       }
     ]
   },

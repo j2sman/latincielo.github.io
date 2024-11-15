@@ -39,6 +39,7 @@
     "description": "Notion calendar will be connected.",
     "viewNotionSchedule": "View Notion",
     "onlineClasses": "Online Classes",
+    "workshopAndFestival": "Workshop & Festival",
     "weekdays": {
       "monday": "Monday",
       "tuesday": "Tuesday",
@@ -150,6 +151,30 @@
         "title": "Online #3",
         "description": "Online #3",
         "image": "https://images.latincielo.kr/Class/en/Online3.png"
+      },
+      {
+        "weekday": "-2",
+        "title": "Workshop #1",
+        "description": "Workshop #1",
+        "image": "https://images.latincielo.kr/Class/en/Workshop1.png"
+      },
+      {
+        "weekday": "-2",
+        "title": "Workshop #2",
+        "description": "Workshop #2",
+        "image": "https://images.latincielo.kr/Class/en/Workshop2.png"
+      },
+      {
+        "weekday": "-3",
+        "title": "Festival #1",
+        "description": "Festival #1",
+        "image": "https://images.latincielo.kr/Class/en/Festival1.png"
+      },
+      {
+        "weekday": "-3",
+        "title": "Festival #2",
+        "description": "Festival #2",
+        "image": "https://images.latincielo.kr/Class/en/Festival2.png"
       }
     ]
   },
