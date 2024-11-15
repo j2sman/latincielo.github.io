@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <div class="video-background">
-      <video autoplay muted loop>
+      <video autoplay muted loop preload="none">
         <source
           src="https://images.latincielo.kr/Background/Video4.mp4"
           type="video/mp4"
@@ -20,6 +20,8 @@
         <img
           :src="instructor.image"
           :alt="instructor.name"
+          loading="eager"
+          fetchpriority="high"
           class="w-full h-48 object-cover rounded-lg mb-4"
         />
         <h2 class="text-xl font-bold mb-2">{{ instructor.name }}</h2>

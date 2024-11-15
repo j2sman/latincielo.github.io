@@ -1,7 +1,7 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <div class="video-background">
-      <video autoplay muted loop>
+      <video autoplay muted loop preload="none">
         <source
           src="https://images.latincielo.kr/Background/Video3.mp4"
           type="video/mp4"
@@ -33,9 +33,7 @@
         >
           {{ $t("schedule.onlineClasses") }}
         </h2>
-        <div
-          class="grid grid-cols-7 gap-2 md:gap-4"
-        >
+        <div class="grid grid-cols-7 gap-2 md:gap-4">
           <div
             v-for="(onlineClass, index) in onlineClasses"
             :key="index"
@@ -45,6 +43,8 @@
             <img
               :src="onlineClass.image"
               :alt="onlineClass.title"
+              loading="eager"
+              fetchpriority="high"
               class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
             />
             <div
@@ -85,6 +85,8 @@
               <img
                 :src="regularClass.image"
                 :alt="regularClass.title"
+                loading="eager"
+                fetchpriority="high"
                 class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div
@@ -109,6 +111,8 @@
           v-if="selectedImage"
           :src="selectedImage.image"
           :alt="selectedImage.title"
+          loading="eager"
+          fetchpriority="high"
           class="max-w-full max-h-[80vh] object-contain rounded-lg"
         />
         <button
@@ -228,6 +232,15 @@ function openNotionSchedule() {
 // 컴포넌트가 마운트될 때 데이터 로드
 onMounted(() => {
   loadRegularClassImages();
+});
+useHead({
+  title: `${t("schedule.title")} - LatinCielo`,
+  meta: [
+    {
+      name: "description",
+      content: t("schedule.description"),
+    },
+  ],
 });
 </script>
 

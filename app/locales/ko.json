@@ -31,7 +31,8 @@
     "viewMainInstructors": "메인 강사 소개 보기"
   },
   "history": {
-    "title": "활동 내역"
+    "title": "활동 내역",
+    "description": "LatinCielo의 활동 내역을 소개합니다."
   },
   "schedule": {
     "title": "수업 일정",

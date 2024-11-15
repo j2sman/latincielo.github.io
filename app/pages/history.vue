@@ -1,48 +1,29 @@
 <template>
   <div class="container mx-auto px-4 py-8">
     <div class="video-background">
-      <video autoplay muted loop>
+      <video autoplay muted loop preload="none">
         <source
           src="https://images.latincielo.kr/Background/Video5.mp4"
           type="video/mp4"
         />
       </video>
     </div>
-    <h1 class="text-3xl font-bold mb-8">{{ $t("history.title") }}</h1>
 
-    <div class="grid gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <div
         v-for="(item, index) in sortedHistory"
         :key="index"
-        class="bg-white rounded-lg shadow-md p-6"
+        class="bg-black/30 backdrop-blur-sm rounded-lg shadow-md p-6"
       >
-        <div class="flex flex-col md:flex-row gap-6">
-          <!-- 미디어 섹션 -->
-          <div class="md:w-1/3">
-            <template v-if="item.type === 'youtube'">
-              <iframe
-                class="w-full aspect-video rounded"
-                :src="getYoutubeEmbedUrl(item.url)"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-            </template>
-            <template v-else-if="item.type === 'image'">
-              <img
-                :src="item.url"
-                :alt="item.title"
-                class="w-full h-auto rounded"
-              />
-            </template>
-          </div>
-
-          <!-- 콘텐츠 섹션 -->
-          <div class="md:w-2/3">
-            <h2 class="text-xl font-semibold mb-2">{{ item.title }}</h2>
-            <p class="text-gray-600 mb-4">{{ item.date }}</p>
-            <!-- <p class="text-gray-800">{{ item.description }}</p> -->
-          </div>
+        <div class="w-full">
+          <iframe
+            class="w-full aspect-video rounded"
+            :src="getYoutubeEmbedUrl(item.url)"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <p class="text-center mt-4 text-white/50">{{ item.date }}</p>
         </div>
       </div>
     </div>
@@ -50,7 +31,7 @@
 </template>
 
 <script setup>
-const { locale } = useI18n();
+const { t, tm, locale } = useI18n();
 const history = ref([]);
 const youtubeVideos = ref([]);
 
@@ -82,17 +63,20 @@ const fetchYoutubeVideos = async () => {
     const xmlDoc = parser.parseFromString(xmlText, "text/xml");
 
     const entries = xmlDoc.querySelectorAll("entry");
+
+    const videoCount = 12;
     youtubeVideos.value = Array.from(entries)
-      .slice(0, 5)
       .map((entry) => ({
         type: "youtube",
         title: entry.querySelector("title").textContent,
-        // description: entry.querySelector("media\\:description, description")
-        //   .textContent,
-        date: new Date(
-          entry.querySelector("published").textContent
-        ).toLocaleDateString(),
+        date: new Date(entry.querySelector("published").textContent),
         url: entry.querySelector("link").getAttribute("href"),
+      }))
+      .sort((a, b) => b.date - a.date)
+      .slice(0, videoCount)
+      .map((video) => ({
+        ...video,
+        date: video.date.toLocaleDateString(),
       }));
   } catch (error) {
     console.error("YouTube 데이터를 불러오는데 실패했습니다:", error);
@@ -122,22 +106,21 @@ function getYoutubeEmbedUrl(url) {
   const videoId = url.split("v=")[1];
   return `https://www.youtube.com/embed/${videoId}`;
 }
+
+useHead({
+  title: `${t("history.title")} - LatinCielo`,
+  meta: [
+    {
+      name: "description",
+      content: t("history.description"),
+    },
+  ],
+});
 </script>
 
 <style scoped>
 .container {
-  max-width: 1200px;
-}
-
-/* grid 아이템 높이 조정 */
-.grid > div {
-  min-height: 400px; /* 높이 더 증가 */
-  display: flex;
-  align-items: stretch;
-}
-
-.grid > div > div {
-  width: 100%;
+  max-width: 1400px;
 }
 
 .video-background {
@@ -171,70 +154,35 @@ function getYoutubeEmbedUrl(url) {
   transform: translate(-50%, -50%);
 }
 
-/* 미디어 섹션 스타일 추가 */
-.md\:w-1\/3 {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-/* iframe 크기 조정 */
-iframe.w-full {
-  width: 100%;
-  height: 300px; /* 고정 높이 설정 */
-  object-fit: cover;
-}
-
-/* 이미지 크기 조정 */
-img.w-full {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-/* 콘텐츠 섹션 스타일링 */
-.md\:w-2\/3 {
+.grid > div {
+  min-height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+  align-items: center;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease-in-out;
 }
 
-/* 타이틀 스타일링 */
-.text-xl {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  color: #333;
-  font-weight: 600;
-  word-break: keep-all; /* 한글 단어 분리 방지 */
+.grid > div:hover {
+  transform: translateY(-5px);
 }
 
-/* 날짜 스타일링 */
-.text-gray-600 {
-  font-size: 1rem;
-  color: #666;
-  margin-bottom: 1rem;
+iframe.w-full {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
 }
 
-/* 미디어 섹션과 콘텐츠 섹션 사이 간격 조정 */
-.gap-6 {
-  gap: 2rem;
+@media (max-width: 1024px) {
+  iframe.w-full {
+    height: 300px;
+  }
 }
 
-/* 반응형 조정 */
 @media (max-width: 768px) {
-  .text-xl {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .text-gray-600 {
-    font-size: 0.875rem;
-  }
-
-  .md\:w-2\/3 {
-    padding: 15px;
+  iframe.w-full {
+    height: 250px;
   }
 }
 </style>

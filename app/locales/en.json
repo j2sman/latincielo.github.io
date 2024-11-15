@@ -31,7 +31,8 @@
     "viewMainInstructors": "View Main Instructors"
   },
   "history": {
-    "title": "Activity History"
+    "title": "Activity History",
+    "description": "Introducing LatinCielo's activity history."
   },
   "schedule": {
     "title": "Class Schedule",
